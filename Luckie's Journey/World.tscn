@@ -1,0 +1,164 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Characters/Luckie/Movement/Down/Luckie Movement Forward.png" type="Texture" id=1]
+[ext_resource path="res://Characters/Luckie/Movement/Down/Luckie Idle.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Luckie/Scripts/Luckie.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Luckie/Movement/Up/Luckie Movement Backwords.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Luckie/Movement/Left/Luckie Left Movement .png" type="Texture" id=5]
+[ext_resource path="res://Characters/Luckie/Movement/Right/Luckie Right Movement .png" type="Texture" id=6]
+[ext_resource path="res://Characters/Luckie/Movement/Right/Luckie Side Sprite.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Luckie/Movement/Left/Luckie Side Sprite.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Luckie/Movement/Up/Luckie Sprite clone.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
+"loop": true,
+"name": "MoveLeft",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "IdleUp",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "IdleDown",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "IdleRight",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "IdleLeft",
+"speed": 1.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=9]
+radius = 19.3436
+height = 32.0824
+
+[node name="World" type="Node2D"]
+
+[node name="Luckie" type="KinematicBody2D" parent="."]
+position = Vector2( 1.25, 32.25 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Luckie"]
+position = Vector2( 61.6382, 10.0757 )
+scale = Vector2( 2.13333, 2.38027 )
+frames = SubResource( 8 )
+animation = "MoveUp"
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Luckie"]
+position = Vector2( 62.7783, 12.1263 )
+shape = SubResource( 9 )
