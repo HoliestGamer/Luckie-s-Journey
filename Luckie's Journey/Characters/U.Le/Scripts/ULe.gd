@@ -1,40 +1,39 @@
 extends KinematicBody2D
 
-var vel = Vector2() #Checks how fast the player is moving
+onready var anim = $AnimatedSprite 
+onready var target = get_node(target_path)
+
+export var target_path = NodePath()
+export var follow_offset = 100.0
+export var max_speed = 550.0
+
+const ARRIVE_THRESHOLD = 3.0
+
 var directionFacing = Vector2() #Checks which direction the player is facing
 var speed = 250 #Player's Speed
-onready var anim = $AnimatedSprite 
+var vel = Vector2.ZERO#Checks how fast the player is moving
 
-
-func _process(delta):
-	vel = Vector2()
-	directionFacing = Vector2()
+func _physics_process(delta: float) -> void:
+	if target == self:
+		set_physics_process(false)
 	
-	# Movement Inputs
-	if Input.is_action_pressed("ui_left"):
-		vel.x -= 1
-		directionFacing = Vector2(-1,0)
+	var target_global_position: Vector2 = target.global_position
+	var to_target: = global_position.distance_to(target_global_position)
 	
-	if Input.is_action_pressed("ui_right"):
-		vel.x += 1
-		directionFacing = Vector2(1,0)
+	if to_target < ARRIVE_THRESHOLD:
+		return
 	
-	if Input.is_action_pressed("ui_up"):
-		vel.y -= 1
-		directionFacing = Vector2(0,-1)
+	vel = Steering.arrive_to(
+		vel,
+		global_position,
+		target_global_position,
+		max_speed,
+		200.0,
+		2.0
+	)
 	
-	if Input.is_action_pressed("ui_down"):
-		vel.y += 1
-		directionFacing = Vector2(0,1)
-		
-	# Prevents the player's speed from increasing when moving diagnolly
-	vel = vel.normalized()
-	
-	# Allows the player to move
-	move_and_slide(vel * speed, Vector2.ZERO)
-	
-	animations() #Plays the animation
-	
+	vel = move_and_slide(vel)
+	animations()
 
 # Plays one of the animations for Luckie depending on the direction he's facing or if he's moving
 func animations ():

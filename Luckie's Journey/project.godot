@@ -19,6 +19,10 @@ config/name="Luckie's Journey"
 run/main_scene="res://World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Steering="*res://Characters/U.Le/Scripts/Autoload/Steering.gd"
+
 [input]
 
 ui_left={
