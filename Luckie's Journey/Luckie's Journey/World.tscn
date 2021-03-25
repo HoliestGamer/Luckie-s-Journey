@@ -1,0 +1,317 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Characters/Luckie/Movement/Down/Luckie Movement Forward.png" type="Texture" id=1]
+[ext_resource path="res://Characters/Luckie/Movement/Down/Luckie Idle.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Luckie/Scripts/Luckie.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Luckie/Movement/Up/Luckie Movement Backwords.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Luckie/Movement/Left/Luckie Left Movement .png" type="Texture" id=5]
+[ext_resource path="res://Characters/Luckie/Movement/Right/Luckie Right Movement .png" type="Texture" id=6]
+[ext_resource path="res://Characters/Luckie/Movement/Right/Luckie Side Sprite.png" type="Texture" id=7]
+[ext_resource path="res://Characters/Luckie/Movement/Left/Luckie Side Sprite.png" type="Texture" id=8]
+[ext_resource path="res://Characters/Luckie/Movement/Up/Luckie Sprite clone.png" type="Texture" id=9]
+[ext_resource path="res://Characters/U.Le/Movement/Down/U.Le Sprite.png" type="Texture" id=10]
+[ext_resource path="res://Characters/U.Le/Movement/Down/U.Le Down Movement.png" type="Texture" id=11]
+[ext_resource path="res://Characters/U.Le/Movement/Up/U.Le Up Movement.png" type="Texture" id=12]
+[ext_resource path="res://Characters/U.Le/Scripts/ULe.gd" type="Script" id=13]
+[ext_resource path="res://Characters/U.Le/Movement/Left/U.Le Left Movement.png" type="Texture" id=14]
+[ext_resource path="res://Characters/U.Le/Movement/Right/U.Le Right Movement .png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 15, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 30, 0, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 27, 15, 27 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 15, 27 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "MoveLeft",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "IdleUp",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "IdleRight",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "IdleLeft",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 17 ) ],
+"loop": true,
+"name": "IdleDown",
+"speed": 1.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 19.3436
+height = 32.0824
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 20, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 28, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 20, 28, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 31, 29 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 31, 0, 31, 29 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 29, 31, 29 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 31, 29, 31, 29 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 20, 0, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 28, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 20, 28, 20, 28 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 31, 28 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 31, 0, 31, 28 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 0, 28, 31, 28 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 11 )
+region = Rect2( 31, 28, 31, 28 )
+
+[sub_resource type="SpriteFrames" id=36]
+animations = [ {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "MoveLeft",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "IdleUp",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "IdleRight",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "IdleLeft",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "IdleDown",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=37]
+radius = 34.1556
+height = 8.03284
+
+[node name="World" type="Node2D"]
+
+[node name="Luckie" type="KinematicBody2D" parent="."]
+position = Vector2( 453.031, 235.083 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Luckie"]
+position = Vector2( 62.0664, 12.5063 )
+scale = Vector2( 2.13333, 2.37037 )
+frames = SubResource( 18 )
+animation = "IdleDown"
+speed_scale = 0.5
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Luckie"]
+position = Vector2( 62.7783, 12.1263 )
+shape = SubResource( 19 )
+
+[node name="ULe" type="KinematicBody2D" parent="."]
+position = Vector2( 505.891, 238.423 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+target_path = NodePath("../Luckie")
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ULe"]
+position = Vector2( 9.70187, -72.0987 )
+scale = Vector2( 2.06452, 2.49057 )
+frames = SubResource( 36 )
+animation = "IdleDown"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ULe"]
+position = Vector2( 10.0765, -73.2225 )
+shape = SubResource( 37 )
+one_way_collision_margin = 128.0
