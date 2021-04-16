@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var vel = Vector2() #Checks how fast the player is moving
 var directionFacing = Vector2() #Checks which direction the player is facing
-var speed = 250 #Player's Speed
+var speed = 250.0 #Player's Speed
 onready var anim = $AnimatedSprite 
 
 
