@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Characters/Logger/Logger.gd" type="Script" id=2]
+[ext_resource path="res://Characters/Logger/Movement/Down/Logger Movement Down.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Logger/Movement/Up/Logger Movement Up.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Logger/Movement/Left/Logger Side Movement.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Logger/Movement/Right/Logger Side Movement (1).png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 25, 23 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 23, 25, 23 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 14, 23 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 14, 0, 14, 23 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 14, 23 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 14, 0, 14, 23 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 25, 23 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 23, 25, 23 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "MoveDown",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "MoveLeft",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "MoveRight",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "MoveUp",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 22.8065
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 22.8535
+height = 0.0
+
+[node name="Logger" type="Node2D"]
+
+[node name="Logger" type="KinematicBody2D" parent="."]
+position = Vector2( 301.394, 78.9071 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Logger"]
+position = Vector2( 206.039, 211.25 )
+scale = Vector2( 1.53241, 1.5171 )
+frames = SubResource( 9 )
+animation = "MoveDown"
+frame = 1
+playing = true
+
+[node name="Hurtbox" type="Area2D" parent="Logger"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Logger/Hurtbox"]
+position = Vector2( 205.714, 213.419 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Logger"]
+position = Vector2( 205.508, 213.231 )
+shape = SubResource( 11 )
+[connection signal="area_entered" from="Logger/Hurtbox" to="Logger" method="_on_Hurtbox_area_entered"]
