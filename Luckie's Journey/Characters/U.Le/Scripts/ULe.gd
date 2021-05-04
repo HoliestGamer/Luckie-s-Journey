@@ -12,7 +12,6 @@ const ARRIVE_THRESHOLD = 3.0
 var directionFacing = Vector2() #Checks which direction the player is facing
 var speed = 250.0 #Player's Speed
 var vel = Vector2.ZERO#Checks how fast the player is moving
-var knockback = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	directionFacing = Vector2()
@@ -50,12 +49,7 @@ func _physics_process(delta: float) -> void:
 	)
 	
 	vel = move_and_slide(vel)
-	
-	knockback = knockback.move_toward(Vector2.ZERO, 200 * delta)
 	animations()
-
-func _on_Knockbox_area_entered(area):
-	knockback = Vector2.LEFT * 400
 
 
 # Plays one of the animations for Luckie depending on the direction he's facing or if he's moving
@@ -81,3 +75,7 @@ func play_animation (anim_name):
 		anim.play(anim_name)
 
 	pass
+
+
+func _on_Resetbox_area_entered(area):
+	get_tree().change_scene("res://Restart.tscn")

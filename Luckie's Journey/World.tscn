@@ -24,20 +24,9 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func loggers_defeated(counter):
+	if counter == 0:
+		get_tree().change_scene(\"res://Completed.tscn\")
 "
 
 [sub_resource type="AtlasTexture" id=2]
@@ -459,10 +448,10 @@ position = Vector2( 10.0765, -73.2225 )
 shape = SubResource( 55 )
 one_way_collision_margin = 128.0
 
-[node name="Knockbox" type="Area2D" parent="ULe"]
+[node name="Resetbox" type="Area2D" parent="ULe"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ULe/Knockbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ULe/Resetbox"]
 position = Vector2( 10.0749, -73.185 )
 shape = SubResource( 56 )
 
@@ -476,4 +465,4 @@ position = Vector2( 513.134, 296.763 )
 scale = Vector2( 3.64099, 3.31445 )
 texture = ExtResource( 20 )
 [connection signal="area_entered" from="Luckie/AnimatedSprite/Area2D" to="Luckie" method="_on_Area2D_area_entered"]
-[connection signal="area_entered" from="ULe/Knockbox" to="ULe" method="_on_Knockbox_area_entered"]
+[connection signal="area_entered" from="ULe/Resetbox" to="ULe" method="_on_Resetbox_area_entered"]

@@ -87,7 +87,6 @@ position = Vector2( 206.039, 211.25 )
 scale = Vector2( 1.53241, 1.5171 )
 frames = SubResource( 9 )
 animation = "MoveDown"
-frame = 1
 playing = true
 
 [node name="Hurtbox" type="Area2D" parent="Logger"]

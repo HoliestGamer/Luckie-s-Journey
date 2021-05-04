@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-onready var playerDetectionZone = $PlayerDetectionZone
 export var ACCELERATION = 300
 export var MAX_SPEED = 50
 export var FRICTION = 200
@@ -33,3 +32,4 @@ func seek_player():
 
 func _on_Hurtbox_area_entered(area):
 	queue_free()
+	

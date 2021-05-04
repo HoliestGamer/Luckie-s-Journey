@@ -6,8 +6,7 @@ var speed = 250.0 #Player's Speed
 onready var anim = $AnimatedSprite 
 var damage = 1
 var health = 1
-var score = 0 #Keeps track of how many loggers have been killed and will be displayed at the game
-
+var counter = 0
 enum{
 	MOVE,
 	ATTACK
@@ -104,3 +103,12 @@ func play_animation (anim_name):
 		anim.play(anim_name)
 
 	pass
+
+func _on_Area2D_area_entered(area):
+	counter += 1
+	print(counter)
+	
+	if counter == 20:
+		get_tree().change_scene("res://Completed.tscn")
+		counter = 0
+	
